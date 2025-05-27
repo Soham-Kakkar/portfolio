@@ -1,12 +1,9 @@
-import AnimatedLayout from "@/components/AnimatedLayout";
-import Hero from "@/components/Hero";
+import Hero from "@/pagesContent/Hero";
 
 export default function Home() {
   return (
     <>
-    <AnimatedLayout>
       <Hero />
-    </AnimatedLayout>
     </>
   );
 }

@@ -9,7 +9,7 @@ export const SectionContext = createContext<{
   setActiveSection: (id: ActiveSectionType) => void;
 }>({ activeSection: null, setActiveSection: () => {} });
 
-export default function AnimatedLayout({ children }: { children: React.ReactNode }) {
+export default function AnimatedLayout({ bgImage, children }: { bgImage: string, children: React.ReactNode }) {
   const [activeSection, setActiveSection] = useState<ActiveSectionType>('None');
 
   const layoutRef = useRef(null);
@@ -39,6 +39,10 @@ export default function AnimatedLayout({ children }: { children: React.ReactNode
   const bgTranslateX = useTransform(smoothX, [-1, 1], ['-1.5%', '1.5%']);
   const bgTranslateY = useTransform(smoothY, [-1, 1], ['-1.5%', '1.5%']);
 
+  useEffect(() => {
+    window.scrollTo(0,0);
+  }, []);
+
   return (
     <SectionContext.Provider value={{ activeSection, setActiveSection }}>
       <div ref={layoutRef}>
@@ -48,11 +52,12 @@ export default function AnimatedLayout({ children }: { children: React.ReactNode
             scale: bgScale,
             x: bgTranslateX,
             y: bgTranslateY,
+            backgroundImage: `url(${bgImage})`,
           }}
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="fixed inset-0 z-[-10] bg-[url('/images/bg.png')] bg-cover bg-no-repeat bg-center bg-fixed"
+          className={`fixed inset-0 z-[-10] bg-cover bg-no-repeat bg-center bg-fixed`}
         />
 
         {/* Foreground Content Layer */}

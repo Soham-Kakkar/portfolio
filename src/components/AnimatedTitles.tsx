@@ -51,8 +51,10 @@ export default function TypewriterTitles() {
     } else if (!isDeleting && charIndex === fullText.length) {
       timeout = setTimeout(() => setIsDeleting(true), pauseTime);
     } else if (isDeleting && charIndex === 0) {
-      setIsDeleting(false);
-      setIndex((prev) => (prev + 1) % allTitles.length);
+      timeout = setTimeout(() => {
+        setIsDeleting(false);
+        setIndex((prev) => (prev + 1) % allTitles.length);
+      }, initialDelay);
     }
 
     return () => clearTimeout(timeout);
@@ -61,7 +63,7 @@ export default function TypewriterTitles() {
   return (
     <p className="mt-4 text-lg md:text-xl text-muted-foreground font-mono min-h-[2.5rem]">
       {hasStarted && <>
-                    I'm a 
+                    I&apos;m a 
                     <span className="text-green-100"> {displayText}</span>
                     <span className="animate-pulse">|</span>
                     </>

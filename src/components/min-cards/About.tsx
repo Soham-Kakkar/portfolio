@@ -19,7 +19,7 @@ export default function MinAbout({ onInViewChange }: { onInViewChange: (visible:
       <CardContent>
         <h2 className="text-4xl font-semibold mb-2">About Me</h2>
         <p className="text-sm leading-relaxed text-muted-foreground">
-          I'm a <strong>Full-Stack Developer</strong> focused on performance, clean architecture, and developer experience.
+          I&apos;m a <strong>Full-Stack Developer</strong> focused on performance, clean architecture, and developer experience.
           <br /><br />
           🧠 B.Tech student at <strong>IIT Jammu</strong> with strong fundamentals and full-stack experience.
           <br /><br />

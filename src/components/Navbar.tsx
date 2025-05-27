@@ -2,12 +2,13 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useContext, useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { SectionContext } from './AnimatedLayout'
 import { Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
+    { label: 'Home', href: '/' },
     { label: 'About', href: '/about' },
     { label: 'Projects', href: '/projects' },
     { label: 'Contact', href: '/contact' },
@@ -15,32 +16,33 @@ const navItems = [
 
 export type ActiveSectionType = 'None' | 'Home' | 'About' | 'Projects' | 'Contact';
 
-const sections: ActiveSectionType[] = ['About', 'Projects', 'Contact'];
-
 export default function Navbar() {
     const { activeSection } = useContext(SectionContext);
     const [isOpen, setIsOpen] = useState(false);
-
+    const [ismouted, setIsMounted] = useState(false);
     const [scrolled, setScrolled] = useState(false);
-    const [blur, setBlur] = useState(0);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
 
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 10);
-            setBlur(Math.min(window.scrollY / 100, 10));
         };
 
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    if (!ismouted) return null;
 
     return (
         <header
-            className={`w-full sticky top-2 z-50 text-lg text-center transition-all duration-600`}
+            className={`w-full sticky top-2 z-50 text-lg text-center transition-all duration-600 h-6 px-2`}
         >
             <div
-                className={`flex items-center justify-between max-w-[1400px] mx-auto transition-all duration-800 ${scrolled
+                className={`flex items-center justify-between max-w-[1400px] mx-auto transition-all duration-400 ${scrolled
                     ? 'rounded-xl bg-white/10 backdrop-blur-lg border border-white/20 shadow-md py-1 px-4'
                     : 'bg-transparent py-4 px-4'}`}
             >

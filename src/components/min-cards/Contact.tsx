@@ -4,11 +4,15 @@ import { useRef, useEffect } from 'react';
 import { useInView } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 import { FaLinkedin, FaXTwitter, FaEnvelope } from 'react-icons/fa6';
+import ContactedToast from '../contactedToast';
 
 export default function MinContact({ onInViewChange }: { onInViewChange: (visible: boolean) => void; }) {
   const ref = useRef<HTMLDivElement>(null);
-  
+
   const inView = useInView(ref, { amount: 'all', initial: false });
 
   useEffect(() => {
@@ -18,7 +22,7 @@ export default function MinContact({ onInViewChange }: { onInViewChange: (visibl
   return (
     <Card
       ref={ref}
-      className="bg-[#456789]/50 backdrop-blur-md border border-white/20"
+      className="bg-[#6789ab]/50 backdrop-blur-md border border-white/20"
     >
       <CardContent className="space-y-4">
         <h2 className="text-4xl font-semibold mb-2">Contact</h2>
@@ -51,7 +55,7 @@ export default function MinContact({ onInViewChange }: { onInViewChange: (visibl
             <span>X (Twitter)</span>
           </a>
         </div>
-        
+
         {/* Contact Form */}
         <form
           action="https://formsubmit.co/5466c9b738c8f4b7be30a8caf0d12fb0"
@@ -60,28 +64,43 @@ export default function MinContact({ onInViewChange }: { onInViewChange: (visibl
         >
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_next" value="http://localhost:3000?contacted=true" />
 
-          <input
-            type="email"
-            name="email"
-            required
-            placeholder="Your email"
-            className="w-full px-3 py-2 rounded-md bg-white/10 border border-white/30 placeholder:text-white/50 text-white text-sm"
-          />
+          <div className="space-y-1.5">
+            <Label htmlFor="name">Your Name</Label>
+            <Input
+              id="name"
+              name="name"
+              required
+              placeholder="Your name"
+              className="bg-white/10 border border-white/30 placeholder:text-white/50 text-white text-sm"
+            />
+            <Label htmlFor="email">Email</Label>
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              required
+              placeholder="Your email"
+              className="bg-white/10 border border-white/30 placeholder:text-white/50 text-white text-sm"
+            />
+          </div>
 
-          <textarea
-            name="message"
-            required
-            placeholder="Your message"
-            className="w-full px-3 py-2 rounded-md bg-white/10 border border-white/30 placeholder:text-white/50 text-white text-sm h-28 resize-none"
-          ></textarea>
+          <div className="space-y-1.5">
+            <Label htmlFor="message">Message</Label>
+            <Textarea
+              id="message"
+              name="message"
+              required
+              placeholder="Your message"
+              className="bg-white/10 border border-white/30 placeholder:text-white/50 text-white text-sm h-28 resize-none"
+            />
+          </div>
 
-          <Button size="sm"
-            variant="outline"
-            type="submit"
-          >
+          <Button size="sm" variant="outline" className="text-xs" type="submit">
             Send Message
           </Button>
+          <ContactedToast />
         </form>
       </CardContent>
     </Card>

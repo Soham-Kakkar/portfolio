@@ -1,30 +1,58 @@
 'use client';
 
-import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { useContext, useEffect, useState } from 'react';
+import { motion, type MotionValue, useTransform } from 'framer-motion';
+import MinAbout from './min-cards/About';
+import MinProjects from './min-cards/Projects';
+import { SectionContext } from './AnimatedLayout';
+import MinContact from './min-cards/Contact';
 
-type Props = {
-  title: string;
-  content: string;
-  link: string;
-  highlightSection: string;
-};
+export default function MinCards({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
+    const { setActiveSection } = useContext(SectionContext);
 
-export default function PreviewCard({ title, content, link, highlightSection }: Props) {
+    const [aboutVisible, setAboutVisible] = useState(false);
+    const [projectsVisible, setProjectsVisible] = useState(false);
+    const [contactVisible, setContactVisible] = useState(false);
+
+    useEffect(() => {
+        if (contactVisible) setActiveSection("Contact");
+        else if (projectsVisible) setActiveSection("Projects");
+        else if (aboutVisible) setActiveSection("About");
+        else setActiveSection("None");
+    }, [aboutVisible, projectsVisible, contactVisible, setActiveSection]);
+
+    // const aboutOpacity = useTransform(scrollYProgress, [0.1, 0.2], [0, 1]);
+    const aboutY = useTransform(scrollYProgress, [0.1, 0.2], ['450vh', '-10%']);
+    // const projectsOpacity = useTransform(scrollYProgress, [0.3, 0.4], [0, 1]);
+    const projectsY = useTransform(scrollYProgress, [0.4, 0.5], ['450vh', '-7%']);
+    // const contactOpacity = useTransform(scrollYProgress, [0.5, 0.6], [0, 1]);
+    const contactY = useTransform(scrollYProgress, [0.6, 0.7], ['450vh', '20%']);
+
   return (
-    <motion.div
-      whileHover={{ scale: 1.03 }}
-      whileTap={{ scale: 0.98 }}
-      className="bg-muted text-foreground p-6 rounded-xl shadow-lg transition-all"
-    >
-      <h2 className="text-xl font-semibold mb-2">{title}</h2>
-      <p className="text-sm leading-relaxed">{content}</p>
-      <Link
-        href={link}
-        className="inline-block mt-4 text-blue-500 font-medium hover:underline"
+    <>
+      {/* About Section */}
+      <motion.div
+        style={{ y: aboutY }}
+        className="absolute right-8 w-1/2 max-w-lg z-[10]"
       >
-        Read more →
-      </Link>
-    </motion.div>
+        <MinAbout onInViewChange={setAboutVisible} />
+      </motion.div>
+
+      {/* Projects Section */}
+      <motion.div
+        style={{ y: projectsY }}
+        className="absolute right-8 w-1/2 max-w-lg z-[20]"
+      >
+        <MinProjects onInViewChange={setProjectsVisible} />
+      </motion.div>
+
+      {/* Contact Section */}
+      <motion.div
+        style={{ y: contactY }}
+        className="absolute right-8 w-1/2 max-w-lg z-[30]"
+      >
+        <MinContact onInViewChange={setContactVisible} />
+      </motion.div>
+    </>
   );
 }

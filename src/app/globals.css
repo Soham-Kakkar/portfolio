@@ -118,12 +118,6 @@
   }
   body {
     @apply bg-background text-foreground;
-    overflow: hidden scroll; /* Needed for controlled scroll */
-    scrollbar-width: none; /* Firefox */
+    overflow-x: hidden;
   }
-
-body::-webkit-scrollbar,
-html::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Edge */
-}
 }
