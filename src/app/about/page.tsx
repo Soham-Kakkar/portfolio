@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     description:
       "Learn more about Soham Kakkar's background and developer philosophy.",
-    url: "http://localhost:3000",
+    url: "https://sohamkakkar.vercel.app/about",
   },
 };
 export default function AboutPage() {

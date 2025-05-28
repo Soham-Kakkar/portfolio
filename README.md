@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Soham Kakkar — Portfolio
 
-## Getting Started
+Welcome to the source code of my personal portfolio website: [soham-kakkar.netlify.app](https://soham-kakkar.netlify.app/).  
+This site highlights my projects, skills, and experience as a developer with a passion for systems programming, web/app development, and AI/ML.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## ✨ Features
+
+- **Smooth scroll animations** using Framer Motion  
+- **Responsive design** with mobile-first layout  
+- **Animated scroll indicator** for user-friendly mobile experience  
+- **Custom Mac-style scrollbar** for visual consistency  
+- **SEO-optimized meta data** and Open Graph tags  
+- **Project showcase with pseudo-window UI**  
+- **Contact page with ticket-style form + links section**  
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework:** [Next.js](https://nextjs.org/)  
+- **Styling:** Tailwind CSS  
+- **Animations:** Framer Motion  
+- **Images:** Next.js Image Optimization  
+- **Deployment:** [Netlify](https://www.netlify.com/)  
+
+---
+
+## 📂 Folder Structure
+
+```
+.
+├── app/                 # Next.js app directory (Home, About, Projects, Contact)
+├── components/          # Reusable UI components
+├── public/              # Static assets (images, icons, etc.)
+├── styles/              # Global styles and custom scrollbars
+├── lib/                 # Utility functions (if any)
+└── README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📄 Meta Configuration
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Each page has custom SEO metadata:
 
-## Learn More
+```ts
+export const metadata = {
+  title: "Soham Kakkar — Portfolio",
+  description: "Developer • Builder • Dreamer. Exploring systems, web, and AI/ML.",
+  openGraph: {
+    title: "Soham Kakkar — Portfolio",
+    description: "Exploring systems, full-stack development, and the edge of what's possible.",
+    url: "https://soham-kakkar.netlify.app/",
+  },
+};
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🚀 Running Locally
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+git clone https://github.com/your-username/portfolio.git
+cd portfolio
+npm install
+npm run dev
+```
 
-## Deploy on Vercel
+Visit [http://localhost:3000](http://localhost:3000) in your browser.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📬 Contact
+
+Feel free to reach out via the contact page or any of the provided links (LinkedIn, GitHub, Calendly, etc.).
+
+---
+
+## 📘 License
+
+This project is open-source under the [MIT License](LICENSE).

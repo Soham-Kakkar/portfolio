@@ -8,18 +8,19 @@ import Link from 'next/link';
 
 const projects = [
   {
-    name: 'DotSlash',
-    shortDesc: 'A developer-friendly chat app with markdown, code editing, and scalable message storage.',
+    name: 'AstriaZa',
+    shortDesc: 'A polished event portal built with React and Next.js, focused on user experience and responsive design.',
   },
   {
-    name: 'IITJ Wellbeing Platform',
-    shortDesc: 'A mental health portal for IIT Jammu with chatbot and resources, optimized for all devices.',
+    name: 'Manomitra',
+    shortDesc: 'The official mental wellbeing platform for IIT Jammu, featuring a clean, accessible frontend for student support.',
   },
   {
-    name: 'CodeOrb',
-    shortDesc: 'An early-stage collaborative coding tool with real-time editing and team dashboards.',
+    name: 'MyNotes',
+    shortDesc: 'A full-stack MERN note-taking app with user authentication and CRUD functionality.',
   },
 ];
+
 
 export default function MInProjects({ onInViewChange }: { onInViewChange: (visible: boolean) => void }) {
   const ref = useRef<HTMLDivElement>(null);

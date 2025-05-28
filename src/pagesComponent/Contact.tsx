@@ -35,7 +35,7 @@ export default function Contact() {
 
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_next" value="http://localhost:3000/contact?contacted=true" />
+          <input type="hidden" name="_next" value="https://sohamkakkar.vercel.app/contact?contacted=true" />
 
           <div>
             <label htmlFor="name" className="block text-sm mb-1 text-gray-300">Your Name</label>
