@@ -4,6 +4,7 @@ import { useRef, useEffect } from 'react';
 import { useInView } from 'framer-motion';
 import { Button } from '../ui/button'
 import { Card, CardContent } from '@/components/ui/card';
+import Link from 'next/link';
 
 export default function MinAbout({ onInViewChange }: { onInViewChange: (visible: boolean) => void }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -28,7 +29,9 @@ export default function MinAbout({ onInViewChange }: { onInViewChange: (visible:
 
         <div className="mt-4">
           <Button size="sm" variant="outline" className="text-xs">
-            Read More →
+            <Link href="/about">
+              Read More →
+            </Link>
           </Button>
         </div>
       </CardContent>

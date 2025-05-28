@@ -1,14 +1,18 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import { use, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { toast } from 'sonner';
 import { motion } from 'framer-motion';
-import { FaCheckCircle } from 'react-icons/fa';
 
 export default function ContactedToast() {
     const searchParams = useSearchParams();
     const contacted = searchParams.get('contacted');
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
 
     useEffect(() => {
         // Only show toast when `contacted` is 'true'
@@ -39,6 +43,8 @@ export default function ContactedToast() {
         url.searchParams.delete('contacted');
         window.history.replaceState({}, '', url.toString());
     }, [contacted]);
+
+    if (!isMounted) return null;
 
     return (
         <>

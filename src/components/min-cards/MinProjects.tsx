@@ -4,6 +4,7 @@ import { useRef, useEffect } from 'react';
 import { useInView } from 'framer-motion';
 import { Button } from '../ui/button'
 import { Card, CardContent } from '@/components/ui/card';
+import Link from 'next/link';
 
 const projects = [
   {
@@ -45,7 +46,9 @@ export default function MInProjects({ onInViewChange }: { onInViewChange: (visib
 
         <div className="mt-4">
           <Button size="sm" variant="outline" className="text-xs">
-            View All Projects →
+            <Link href="/projects">
+                View All Projects →
+            </Link>
           </Button>
         </div>
       </CardContent>

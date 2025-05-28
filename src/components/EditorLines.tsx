@@ -1,7 +1,7 @@
 const syntaxColors = {
   keyword: 'text-purple-400',
   variable: 'text-blue-400',
-  string: 'text-green-400',
+  string: 'text-white',
   punctuation: 'text-gray-400',
   comment: 'text-gray-500 italic select-text',
   lineNumber: 'text-gray-600',
@@ -17,7 +17,7 @@ export default function SyntaxLine({ line, lineNumber }: { line: string; lineNum
       <div className={`pr-4 text-right w-10 shrink-0 ${syntaxColors.lineNumber}`}>
         {lineNumber}
       </div>
-      <div className="flex-grow whitespace-pre-wrap break-words">
+      <div className="flex-grow whitespace-pre-wrap break-words pr-2">
         {tokens.map((token, i) => {
           if (isComment) return <span key={i} className={syntaxColors.comment}>{token}</span>;
           if (/^(const|let|var|function|return|if|else|for|while|switch|case|break)$/.test(token))

@@ -19,7 +19,7 @@ export type ActiveSectionType = 'None' | 'Home' | 'About' | 'Projects' | 'Contac
 export default function Navbar() {
     const { activeSection } = useContext(SectionContext);
     const [isOpen, setIsOpen] = useState(false);
-    const [ismouted, setIsMounted] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
@@ -35,7 +35,7 @@ export default function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    if (!ismouted) return null;
+    if (!isMounted) return null;
 
     return (
         <header

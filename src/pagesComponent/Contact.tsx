@@ -12,7 +12,7 @@ const socialLinks = [
   { name: 'Calendly', icon: FaCalendar, url: 'https://calendly.com/soham-codes' }
 ];
 
-export default function ContactPage() {
+export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -110,7 +110,7 @@ export default function ContactPage() {
         </div>
         <div className="bg-[#161b22] border border-[#30363d] rounded-lg p-4 shadow-md italic">
           <p className="text-sm text-gray-500">
-    // “All messages are stored in a Schrödinger&apos;s inbox — both read and unread until proven otherwise.” 🐱📨
+    &sol;&sol; “All messages are stored in a Schrödinger&apos;s inbox — both read and unread until proven otherwise.” 🐱📨
           </p>
         </div>
 

@@ -7,10 +7,11 @@ import Navbar, { type ActiveSectionType } from './Navbar';
 export const SectionContext = createContext<{
   activeSection: ActiveSectionType | null;
   setActiveSection: (id: ActiveSectionType) => void;
-}>({ activeSection: null, setActiveSection: () => {} });
+}>({ activeSection: null, setActiveSection: () => { } });
 
 export default function AnimatedLayout({ bgImage, children }: { bgImage: string, children: React.ReactNode }) {
   const [activeSection, setActiveSection] = useState<ActiveSectionType>('None');
+  const [isMounted, setIsMounted] = useState(false);
 
   const layoutRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: layoutRef, offset: ['start start', 'end end'] });
@@ -22,6 +23,11 @@ export default function AnimatedLayout({ bgImage, children }: { bgImage: string,
 
   const smoothX = useSpring(mouseX, { stiffness: 20, damping: 10 });
   const smoothY = useSpring(mouseY, { stiffness: 20, damping: 10 });
+
+  useEffect(() => {
+    setIsMounted(true);
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -39,9 +45,7 @@ export default function AnimatedLayout({ bgImage, children }: { bgImage: string,
   const bgTranslateX = useTransform(smoothX, [-1, 1], ['-1.5%', '1.5%']);
   const bgTranslateY = useTransform(smoothY, [-1, 1], ['-1.5%', '1.5%']);
 
-  useEffect(() => {
-    window.scrollTo(0,0);
-  }, []);
+  if (!isMounted) return null;
 
   return (
     <SectionContext.Provider value={{ activeSection, setActiveSection }}>

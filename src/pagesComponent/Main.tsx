@@ -6,8 +6,10 @@ import AnimatedTitles from '../components/AnimatedTitles';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 import MinCards from '../components/minCards';
+import ScrollDownHint from '@/components/ScrollDownHint';
+import Link from 'next/link';
 
-export default function Hero() {
+export default function Main() {
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
         target: ref,
@@ -15,13 +17,18 @@ export default function Hero() {
     });
 
     const [slideX, setSlideX] = useState('-400px');
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
 
     useEffect(() => {
         const updateSlideX = () => {
             const screenWidth = window.innerWidth;
             if (screenWidth >= 1400) setSlideX('-400px');
-            else if (screenWidth >= 1024) setSlideX('-250px');
-            else setSlideX('-80px');
+            else if (screenWidth >= 1100) setSlideX('-250px');
+            else setSlideX('0');
         };
 
         updateSlideX();
@@ -31,6 +38,10 @@ export default function Hero() {
 
     // Transform values for different sections
     const x = useTransform(scrollYProgress, [0, 0.2], ['0px', slideX]);
+    const fade = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
+    const isDesktop = window.innerWidth >= 1100;
+
+    if (!isMounted) return null;
 
     return (
         <section ref={ref} className="relative h-[400vh]">
@@ -42,7 +53,8 @@ export default function Hero() {
             >
                 {/* Hero Section */}
                 <motion.div
-                    style={{ x }}
+                    style={isDesktop ? { x } : { x, opacity: fade }}
+
                     className="absolute left-1/2 -translate-x-1/2 w-full text-center bg-transparent px-4 flex items-center justify-center flex-col"
                 >
                     <Image
@@ -57,9 +69,14 @@ export default function Hero() {
                     </h1>
                     <AnimatedTitles />
                     <div className="mt-6">
-                        <Button size="lg">View My Work</Button>
+                        <Button size="lg">
+                            <Link href="/projects">
+                                View My Work
+                            </Link>
+                        </Button>
                     </div>
                 </motion.div>
+                <ScrollDownHint position='top-[calc(100vh-120px)]'/>
                 <MinCards scrollYProgress={scrollYProgress} />
             </motion.div>
         </section>

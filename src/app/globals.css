@@ -115,9 +115,32 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
-  }
+    scrollbar-width: thin;
+    /* Firefox */
+    scrollbar-color: #999999 transparent;  }
+
   body {
     @apply bg-background text-foreground;
     overflow-x: hidden;
+  }
+
+  /* === Webkit Browsers (Chrome, Edge, Safari) === */
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #a0a0a0;
+    border-radius: 8px;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(130, 130, 130, 0.6);
   }
 }

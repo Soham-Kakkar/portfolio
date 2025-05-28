@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import SyntaxLine from '../components/EditorLines';
 import projects from '@/data/projects';
 
-export default function Project_Hero() {
+export default function Project() {
     const [activeTab, setActiveTab] = useState(0);
     const [showToast, setShowToast] = useState(true);
 
@@ -123,6 +123,7 @@ export default function Project_Hero() {
                     <span className="w-3 h-3 rounded-full bg-[#ff5f56]" />
                     <span className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
                     <span className="w-3 h-3 rounded-full bg-[#27c93f]" />
+                    <span className="text-gray-300 font-semibold text-sm w-full text-center">Projects</span>
                 </div>
 
                 <div className="flex border-b border-gray-700 bg-[#252526] h-10 overflow-x-auto">
@@ -141,7 +142,7 @@ export default function Project_Hero() {
                     ))}
                 </div>
 
-                <div className="flex flex-col py-5 space-y-0.5 text-sm leading-tight overflow-y-auto text-green-400 bg-[#1e1e1e] font-mono h-[calc(100%-10rem)]" style={{ fontFamily: `"ui-monospace", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace` }}>
+                <div className="flex flex-col py-5 space-y-0.5 leading-tight overflow-y-auto bg-[#1e1e1e] font-mono h-[calc(100%-10rem)]" style={{ fontFamily: `"ui-monospace", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace` }}>
                     {typingStates[activeTab]?.typedLines.map((line, i) => (
                         <span key={i}><SyntaxLine line={line} lineNumber={i + 1} /><br /></span>
                     ))}
@@ -156,7 +157,7 @@ export default function Project_Hero() {
                         <span className="text-gray-300 font-semibold">{projects[activeTab].name}:</span>}
                     {projects[activeTab].liveUrl && (
                         <a href={projects[activeTab].liveUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-white text-white text-sm font-medium">
-                            Live Demo
+                            Live Link
                         </a>
                     )}
                     {projects[activeTab].githubUrl && (
