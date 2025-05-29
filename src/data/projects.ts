@@ -12,7 +12,7 @@ const projects = [
             'Authentication limited to IIT Jammu users using domain-restricted Google sign-in.',
             'Deployed via Vercel for lightning-fast loading and global CDN support.'
         ],
-        liveUrl: 'https://astriaza.vercel.app',
+        liveUrl: 'https://astriaza-iitjammu.vercel.app',
         githubUrl: 'https://github.com/Soham-Kakkar/Astria-Za'
     },
     {
