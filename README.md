@@ -23,7 +23,7 @@ This site highlights my projects, skills, and experience as a developer with a p
 - **Styling:** Tailwind CSS  
 - **Animations:** Framer Motion  
 - **Images:** Next.js Image Optimization  
-- **Deployment:** [Netlify](https://www.netlify.com/)  
+- **Deployment:** [Vercel](https://vercel.com)  
 
 ---
 
