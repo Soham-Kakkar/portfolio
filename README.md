@@ -27,38 +27,6 @@ This site highlights my projects, skills, and experience as a developer with a p
 
 ---
 
-## 📂 Folder Structure
-
-```
-.
-├── app/                 # Next.js app directory (Home, About, Projects, Contact)
-├── components/          # Reusable UI components
-├── public/              # Static assets (images, icons, etc.)
-├── styles/              # Global styles and custom scrollbars
-├── lib/                 # Utility functions (if any)
-└── README.md
-```
-
----
-
-## 📄 Meta Configuration
-
-Each page has custom SEO metadata:
-
-```ts
-export const metadata = {
-  title: "Soham Kakkar — Portfolio",
-  description: "Developer • Builder • Dreamer. Exploring systems, web, and AI/ML.",
-  openGraph: {
-    title: "Soham Kakkar — Portfolio",
-    description: "Exploring systems, full-stack development, and the edge of what's possible.",
-    url: "https://soham-kakkar.netlify.app/",
-  },
-};
-```
-
----
-
 ## 🚀 Running Locally
 
 ```bash
