@@ -30,7 +30,7 @@ This site highlights my projects, skills, and experience as a developer with a p
 ## 🚀 Running Locally
 
 ```bash
-git clone https://github.com/your-username/portfolio.git
+git clone https://github.com/Soham-Kakkar/portfolio.git
 cd portfolio
 npm install
 npm run dev
