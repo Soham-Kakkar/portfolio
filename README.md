@@ -1,6 +1,6 @@
 # Soham Kakkar — Portfolio
 
-Welcome to the source code of my personal portfolio website: [soham-kakkar.netlify.app](https://soham-kakkar.netlify.app/).  
+Welcome to the source code of my personal portfolio website: [soham-kakkar.netlify.app](https://sohamkakkar.vercel.app/).  
 This site highlights my projects, skills, and experience as a developer with a passion for systems programming, web/app development, and AI/ML.
 
 ---
