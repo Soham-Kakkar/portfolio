@@ -12,8 +12,8 @@ const projects = [
             'Authentication limited to IIT Jammu users using domain-restricted Google sign-in.',
             'Deployed via Vercel for lightning-fast loading and global CDN support.'
         ],
-        liveUrl: 'https: //astriaza.vercel.app',
-        githubUrl: 'https: //github.com/Soham-Kakkar/Astria-Za'
+        liveUrl: 'https://astriaza.vercel.app',
+        githubUrl: 'https://github.com/Soham-Kakkar/Astria-Za'
     },
     {
         name: 'MyNotes',
@@ -28,8 +28,8 @@ const projects = [
             'Optimized API routes with proper error handling, status codes, and scalable folder structure.',
             'Designed with a clean, distraction-free UI for productive writing.'
         ],
-        liveUrl: 'mynotes-94s8.onrender.com',
-        githubUrl: 'https: //github.com/Soham-Kakkar/MyNotes'
+        liveUrl: 'https://mynotes-94s8.onrender.com',
+        githubUrl: 'https://github.com/Soham-Kakkar/MyNotes'
     },
     {
         name: 'Manomitra',
@@ -43,8 +43,8 @@ const projects = [
             'Built under a strict deadline as part of a campus-wide initiative in collaboration with faculty.',
             'Deployed using Vercel, with focus on fast loading and reliability across networks.'
         ],
-        liveUrl: 'https: //manomitra-iit-jammu.vercel.app',
-        githubUrl: 'https: //github.com/Soham-Kakkar/IIT-J-Mental-Health-Project'
+        liveUrl: 'https://manomitra-iit-jammu.vercel.app',
+        githubUrl: 'https://github.com/Soham-Kakkar/IIT-J-Mental-Health-Project'
     },
     {
         name: 'And More Loading...',
